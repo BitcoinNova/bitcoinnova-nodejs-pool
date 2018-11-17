@@ -6,8 +6,6 @@ High performance Node.js (with native C addons) mining pool for CryptoNote based
 
 #### Table of Contents
 * [Features](#features)
-* [Community Support](#community--support)
-* [Pools Using This Software](#pools-using-this-software)
 * [Usage](#usage)
   * [Requirements](#requirements)
   * [Downloading & Installing](#1-downloading--installing)
