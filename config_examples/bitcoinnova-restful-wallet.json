@@ -1,16 +1,21 @@
 {
-    "poolHost": "192.168.1.159",
+    "poolHost": "your.pool.host",
 
     "coin": "BitcoinNova",
     "symbol": "BTN",
     "coinUnits": 1000000,
     "coinDecimalPlaces": 6,
     "coinDifficultyTarget": 120,
-
-    "daemonType": "bitcoinnova",
-    "cnAlgorithm": "cryptonight_light",
-    "cnVariant": 1,
+    "blockchainExplorer": "http://explorer.bitcoinnova.org/?hash={id}#blockchain_block",
+    "transactionExplorer": "http://explorer.bitcoinnova.org/?hash={id}#blockchain_transaction",
+    "daemonType": "bytecoin",
+    "cnAlgorithm": "argon2",
+    "cnVariant": 0,
     "cnBlobType": 2,
+    "includeHeight": true,
+    "restfulApiWallet" : true,
+    "restfulApiDaemonAndWallet": false,
+    "offset": 2,
 
     "logging": {
         "files": {
@@ -24,10 +29,14 @@
         }
     },
 
+    "hashingUtil": true,
+    "childPools": null,
+
     "poolServer": {
         "enabled": true,
+        "mergedMining": false,
         "clusterForks": "auto",
-        "poolAddress": "E7qegD8Y1HRQbWRNyGzp31gVqKZT9iteqBbk9joSe8R3Q38T6JhV4xcT13wnVWwcpeaebaeUZ8FRGPdFopxhBbGU47Ww5VV",
+        "poolAddress": "Address BTN",
         "intAddressPrefix": null,
         "blockRefreshInterval": 1000,
         "minerTimeout": 900,
@@ -36,30 +45,30 @@
         "sslCA": "./chain.pem",
         "ports": [
             {
-                "port": 3333,
-                "difficulty": 5000,
+                "port": 11151,
+                "difficulty": 400000,
                 "desc": "Low end hardware"
             },
             {
-                "port": 4444,
-                "difficulty": 20000,
+                "port": 11152,
+                "difficulty": 600000,
                 "desc": "Mid range hardware"
             },
             {
-                "port": 5555,
-                "difficulty": 50000,
+                "port": 11153,
+                "difficulty": 700000,
                 "desc": "High end hardware"
             },
             {
-                "port": 6666,
-                "difficulty": 600000,
+                "port": 11154,
+                "difficulty": 1000000,
                 "desc": "Very hight end hardware"
             }
         ],
         "varDiff": {
             "minDiff": 100,
-            "maxDiff": 500000,
-            "targetTime": 10,
+            "maxDiff": 5000000,
+            "targetTime": 60,
             "retargetTime": 30,
             "variancePercent": 30,
             "maxJump": 100
@@ -67,6 +76,16 @@
         "paymentId": {
             "addressSeparator": "+"
         },
+	"separators": [
+            {
+                "value": "+",
+                "desc": "plus"
+            },
+            {
+                "value": ".",
+                "desc": "dot"
+            }
+        ],
         "fixedDiff": {
             "enabled": true,
             "addressSeparator": "."
@@ -94,39 +113,43 @@
 
     "payments": {
         "enabled": true,
-        "interval": 180,
+        "interval": 120,
         "maxAddresses": 100,
-        "mixin": 7,
+        "mixin": 3,
         "priority": 0,
-        "transferFee": 10000,
-        "dynamicTransferFee": false,
+        "transferFee": 80000000,
+        "dynamicTransferFee": true,
         "minerPayFee" : true,
-        "minPayment": 100000000,
+	"feePerByte": true,
+        "minPayment": 700000000,
         "maxPayment": null,
-        "maxTransactionAmount": 0,
+        "maxTransactionAmount": null,
         "denomination": 1000000
     },
 
     "blockUnlocker": {
         "enabled": true,
         "interval": 30,
-        "depth": 10,
-        "poolFee": 2,
-        "devDonation": 0.0,
-        "networkFee": 0.0
+        "depth": 20,
+	"poolFee": 0.0,
+	"soloFee": 0.0,
+	"finderReward" : 0.0,
+        "devDonation": 0.5,
+        "networkFee": 0.0,
+        "fixBlockHeightRPC": false
     },
 
     "api": {
         "enabled": true,
-        "hashrateWindow": 600,
-        "updateInterval": 5,
+        "hashrateWindow": 120,
+        "updateInterval": 15,
         "bindIp": "0.0.0.0",
-        "port": 8133,
+        "port": 8136,
         "blocks": 30,
         "payments": 30,
-        "password": "1234",
+        "password": "AdminApiPassword",
         "ssl": false,
-        "sslPort": 8132,
+        "sslPort": 8135,
         "sslCert": "./cert.pem",
         "sslKey": "./privkey.pem",
         "sslCA": "./cert.pem",
@@ -141,14 +164,14 @@
     "wallet": {
         "host": "127.0.0.1",
         "port": 8070,
-	"password": "1234"
+	"password": "Your RPC Password"
     },
 
     "redis": {
         "host": "127.0.0.1",
         "port": 6379,
         "auth": null,
-        "db": 0,
+        "db": 1,
 	"cleanupInterval": 15
     },
 
@@ -175,6 +198,15 @@
             "payment": "A payment of %AMOUNT% has been sent to %ADDRESS% wallet."
         },
         "telegramMessage": {
+            "workerConnected": "Your worker _%WORKER_NAME%_ for address _%MINER%_ is now connected from ip _%IP%_.",
+            "workerTimeout": "Your worker _%WORKER_NAME%_ for address _%MINER%_ has stopped submitting hashes on _%LAST_HASH%_.",
+            "workerBanned": "Your worker _%WORKER_NAME%_ for address _%MINER%_ has been banned.",
+            "blockFound": "*Block found at height* _%HEIGHT%_ *by miner* _%MINER%_*! Waiting maturity.*",
+            "blockUnlocked": "*Block mined at height* _%HEIGHT%_ *with* _%REWARD%_ *and* _%EFFORT%_ *effort on* _%TIME%_*.*",
+            "blockOrphaned": "*Block orphaned at height* _%HEIGHT%_ *:(*",
+            "payment": "A payment of _%AMOUNT%_ has been sent."
+        },
+        "discordMessage": {
             "workerConnected": "Your worker _%WORKER_NAME%_ for address _%MINER%_ is now connected from ip _%IP%_.",
             "workerTimeout": "Your worker _%WORKER_NAME%_ for address _%MINER%_ has stopped submitting hashes on _%LAST_HASH%_.",
             "workerBanned": "Your worker _%WORKER_NAME%_ for address _%MINER%_ has been banned.",
@@ -209,7 +241,11 @@
             "domain": "mg.yourdomain"
         }
     },
-
+    "discord": {
+        "enabled": false,
+        "token": "",
+        "channel": ""
+    },
     "telegram": {
         "enabled": false,
         "botName": "",
@@ -226,7 +262,7 @@
             "blocks": "/blocks"
         }
     },
-    
+
     "monitoring": {
         "daemon": {
             "checkInterval": 60,
@@ -234,15 +270,15 @@
         },
         "wallet": {
             "checkInterval": 60,
-            "rpcMethod": "getbalance"
+            "rpcMethod": "getBalance"
         }
     },
 
     "prices": {
-        "source": "tradeogre",
+        "source": "coingecko",
         "currency": "USD"
     },
-    
+
     "charts": {
         "pool": {
             "hashrate": {

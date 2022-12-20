@@ -1,0 +1,20 @@
+[Unit]
+Description=Bitcoin Nova Wallet RPC
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+
+# Change this line to set the location of your coin wallet rpc and set the rpc port you want to use
+
+# For currencies lower than version 0.18.0 of Bitcoin Nova.
+ExecStart=/path/to/coin/wallet-api --rpc-password yourRpcPassword
+# For coins equivalent to version 0.18.0 of Bitcoin Nova.
+# ExecStart=/path/to/coin/wallet-api --scan-coinbase-transactions --rpc-password yourRpcPassword
+
+# Change this line to the user that will run your wallet rpc
+User=pool-user
+
+[Install]
+WantedBy=multi-user.target

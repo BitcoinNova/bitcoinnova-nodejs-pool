@@ -2,13 +2,13 @@
 
 <!-- Handlebars template -->
 <script id="portsListTable" type="text/x-handlebars-template">
-    {{#each ports}}
+    {{#ports}}
     <tr>
-        <td class="col1" data-sort="{{this.port.port}}">{{this.port}}</td>
-        <td class="col2" data-sort="{{this.port.users}}">{{this.users}}</td>
+        <td class="col1" data-sort="{{port.port}}">{{port}}</td>
+        <td class="col2" data-sort="{{port.users}}">{{users}}</td>
         <td class="col3">&nbsp;</td>
     </tr>
-    {{/each}}
+    {{/ports}}
 </script>
 
 <!-- Ports List -->

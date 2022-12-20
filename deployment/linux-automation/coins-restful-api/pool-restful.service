@@ -1,5 +1,5 @@
 [Unit]
-Description=Mining Pool Service
+Description=Bitcoin Nova Mining Pool Service
 After=network.target
 
 [Service]

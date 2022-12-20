@@ -23,6 +23,7 @@
     "networkLastReward": "上次收益",
     "poolMiners": "在线矿工",
     "poolFee": "矿池税",
+    "finderReward": "Finder奖励",
     
     "minerStats": "用户数据及支付历史",
     "workerStats": "设备数据",
@@ -49,9 +50,10 @@
     "height": "高度",
     "difficulty": "难度",
     "blockHash": "区块Hash",
-    "effort": "Effort",
+    "effort": "功夫",
     "blocksFoundLast24": "过去24小时内发现区块",
     "blocksFoundLastDays": "过去{DAYS}天中发现区块",
+    "propSoloConnectedMiners": "成比例的 / 独奏 连接的 矿工",
 
     "payments": "支付",
     "paymentsHistory": "支付历史",

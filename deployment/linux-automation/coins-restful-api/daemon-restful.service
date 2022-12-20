@@ -1,0 +1,17 @@
+[Unit]
+Description=Bitcoin Nova Daemon
+After=network.target
+
+[Service]
+Type=forking
+GuessMainPID=no
+Restart=always
+
+# Change this line to set the location of your coin daemon
+ExecStart=/path/to/coin/bitcoinnovad --enable-blockexplorer
+
+# Change this line to the user that will run your coin daemon
+User=pool-user
+
+[Install]
+WantedBy=multi-user.target
