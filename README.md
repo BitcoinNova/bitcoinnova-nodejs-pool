@@ -2,10 +2,10 @@
 #### Bitcoin Nova is a private, fast, and easy way to send money to friends and businesses.
 
 [![Discord](https://img.shields.io/discord/428851188817985547?label=Bitcoin%20Nova%20[BTN])](https://discord.gg/8zQf7PD) 
-[![GitHub issues](https://img.shields.io/github/issues/BitcoinNova/bitcoinnova?label=Issues)](https://github.com/BitcoinNova/bitcoinnova/issues)
-[![GitHub contributors](https://img.shields.io/github/contributors-anon/BitcoinNova/bitcoinnova?label=Contributors)](https://github.com/BitcoinNova/bitcoinnova/graphs/contributors) 
-[![GitHub All Releases](https://img.shields.io/github/downloads/BitcoinNova/bitcoinnova/total?label=Downloads)](https://github.com/BitcoinNova/bitcoinnova/releases) 
-![Version](https://img.shields.io/github/v/release/BitcoinNova/bitcoinnova)
+[![GitHub issues](https://img.shields.io/github/issues/BitcoinNova/bitcoinnova-nodejs-pool?label=Issues)](https://github.com/BitcoinNova/bitcoinnova/issues)
+[![GitHub contributors](https://img.shields.io/github/contributors-anon/BitcoinNova/bitcoinnova-nodejs-pool?label=Contributors)](https://github.com/BitcoinNova/bitcoinnova-nodejs-pool/graphs/contributors) 
+[![GitHub All Releases](https://img.shields.io/github/downloads/BitcoinNova/bitcoinnova-nodejs-pool/total?label=Downloads)](https://github.com/BitcoinNova/bitcoinnova/releases) 
+![Version](https://img.shields.io/github/v/release/BitcoinNova/bitcoinnova-nodejs-pool)
 
 High performance Node.js (with native C addons) mining pool for CryptoNote based coins. Comes with lightweight example front-end script which uses the pool's AJAX API. Support for Cryptonight (Original, Monero v7, Stellite v7), Cryptonight Light (Original, Aeon v7, IPBC) Cryptonight Fast (Electronero/Crystaleum), Cryptonight Heavy (Ombre), Cryptonight Pico, Argon2 (Ninjacoin, Bitcoin Nova, Turtlecoin) and RandomX (Monero) algorithms.
 
